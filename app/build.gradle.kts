@@ -47,7 +47,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     //  RecyclerView library
-    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     //  Glide Library
     implementation("com.github.bumptech.glide:glide:4.11.0")
 

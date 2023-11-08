@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.recycleview_retrofit.adapter.mupi
 import com.example.recycleview_retrofit.adapter.mupiItemAdapt
 import com.example.recycleview_retrofit.databinding.ActivityMainBinding
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val client = ApiClient.getInstance()
         val response = client.getMovie()
-        val mupidatalist = ArrayList<ResultItem?>() // data yang mau dimasukkan
+        val mupidatalist = ArrayList<ResultItem>() // data yang mau dimasukkan
 
         response.enqueue(object : Callback<Responseee> {
             override fun onResponse(call: Call<Responseee>, response: Response<Responseee>) {
@@ -42,13 +43,15 @@ class MainActivity : AppCompatActivity() {
                             item?.id,
                             item?.title
                         )
-                        mupidatalist.add(item)
+                        if (item != null) {
+                            mupidatalist.add(item)
+                        }
                     }
                     adaptermupi = mupiItemAdapt(mupidatalist) { mupi ->
                         Toast.makeText(this@MainActivity, "anjay", Toast.LENGTH_SHORT).show()
                     }
                     with(binding){
-                        recyclerView.apply {
+                        RV.apply {
                             adapter = adaptermupi
                             layoutManager = LinearLayoutManager(this@MainActivity)
                         }

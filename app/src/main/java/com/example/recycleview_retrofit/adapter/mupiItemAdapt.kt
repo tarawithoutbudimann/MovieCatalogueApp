@@ -11,7 +11,7 @@ import com.example.recycleview_retrofit.model.Responseee
 
 typealias onClickmupi = (ResultItem) -> Unit
 class mupiItemAdapt (
-    private val listmupi: ArrayList<ResultItem?>,
+    private val listmupi: ArrayList<ResultItem>,
     private val onClickmupi: onClickmupi
 ) : RecyclerView.Adapter<mupiItemAdapt.itemMupiViewHolder>() {
 
@@ -20,11 +20,11 @@ class mupiItemAdapt (
     inner class itemMupiViewHolder(private val binding: ItemMupiBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data:ResultItem) {
             with(binding) {
-                txtFilmLazday.text = data.title
+                txtMupi.text = data.title
                 itemView.setOnClickListener {
                     onClickmupi(data) // Memanggil onclickmupi dengan LazdayModel, bukan LazdayData
                 }
-                Glide.with(itemView.context).load(data.image).into(binding.imageLazday)
+                Glide.with(itemView.context).load(data.image).into(binding.imageMupi)
             }
         }
     }
