@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.recycleview_retrofit"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.recycleview_retrofit"
@@ -50,6 +50,7 @@ dependencies {
     //  Retrofit Library
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

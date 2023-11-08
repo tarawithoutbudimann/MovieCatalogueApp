@@ -1,7 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.RecycleView_Retrofit" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- warna primer -->
+    <item name="colorPrimary">@color/pale_black</item>
+    <item name="colorPrimaryVariant">@color/dark_grey</item>
+    <item name="colorOnPrimary">@color/white</item>
+
+    <!-- warna sekunder -->
+    <item name="colorSecondary">@color/pale_black</item>
+    <item name="colorSecondaryVariant">@color/dark_grey</item>
+    <item name="colorOnSecondary">@color/white</item>
+
+    <!-- warna color bar -->
+    <item name="android:statusBarColor" tools:targetApi = "l">?attr/colorPrimaryVariant</item>
     </style>
 </resources>
