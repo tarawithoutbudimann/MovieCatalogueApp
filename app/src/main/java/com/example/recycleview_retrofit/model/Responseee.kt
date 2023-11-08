@@ -2,7 +2,7 @@ package com.example.recycleview_retrofit.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class Responseee (
 
 	@field:SerializedName("result")
 	val result: List<ResultItem?>? = null
