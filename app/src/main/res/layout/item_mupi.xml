@@ -1,48 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
-    app:cardUseCompatPadding="true"
-    android:layout_marginHorizontal="8dp"
-    app:cardElevation="12dp">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.cardview.widget.CardView android:id="@+id/film1"
+    android:layout_marginStart="27dp"
+    android:layout_width="150dp"
+    android:layout_height="200dp"
+    android:layout_marginTop="35dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:layout_constraintTop_toBottomOf="@+id/filmbioskop"
+    app:layout_constraintEnd_toStartOf="@+id/film2"
+    app:layout_constraintStart_toStartOf="parent"
+    android:backgroundTint="@color/pale_black"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/image_Mupi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:cardCornerRadius="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/image_mupi"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/cutnyak"
-                android:scaleType="fitXY" />
-        </androidx.cardview.widget.CardView>
-
+        android:layout_height="match_parent"
+        android:src="@drawable/cutnyak"
+        android:scaleType="fitXY"
+        android:alpha="0.75"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
         <TextView
-            android:id="@+id/txt_mupi"
+            android:id="@+id/txtMupi"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="ailaik de mupi mupi"
-            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="Cut Nyak"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/pale_black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/white"
+            android:layout_marginTop="125dp" />
+        <RatingBar
+            android:id="@+id/rating1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:numStars="5"
+            android:rating="4"
+            android:isIndicator="true"
+            android:progressTint="#FFC107"
+            android:progressBackgroundTint="@color/white" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.google.android.material.card.MaterialCardView>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    app:cardCornerRadius="8dp"-->
+<!--    app:cardUseCompatPadding="true"-->
+<!--    android:layout_marginHorizontal="8dp"-->
+<!--    app:cardElevation="12dp">-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="8dp">-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/cardView"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            app:cardCornerRadius="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/image_mupi"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:src="@drawable/cutnyak"-->
+<!--                android:scaleType="fitXY" />-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_mupi"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="ailaik de mupi mupi"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@color/pale_black"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--</com.google.android.material.card.MaterialCardView>-->

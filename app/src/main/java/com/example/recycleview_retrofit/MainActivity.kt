@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recycleview_retrofit.adapter.mupi
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                     with(binding){
                         RV.apply {
                             adapter = adaptermupi
-                            layoutManager = LinearLayoutManager(this@MainActivity)
+                            layoutManager = GridLayoutManager(this@MainActivity, 2)
                         }
                     }
                 }
