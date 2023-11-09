@@ -15,22 +15,23 @@ class mupiItemAdapt (
     private val onClickmupi: onClickmupi
 ) : RecyclerView.Adapter<mupiItemAdapt.itemMupiViewHolder>() {
 
-    // ... (Bagian lain dari kelas adapter)
 
     inner class itemMupiViewHolder(private val binding: ItemMupiBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data:ResultItem) {
             with(binding) {
                 txtMupi.text = data.title
                 itemView.setOnClickListener {
-                    onClickmupi(data) // Memanggil onclickmupi dengan LazdayModel, bukan LazdayData
+                    onClickmupi(data)
                 }
                 Glide.with(itemView.context).load(data.image).into(binding.imageMupi)
             }
         }
     }
 
-    // ... (Metode lain dari kelas adapter)
-    // untuk menyusun yang akan ditampilkan
+    fun setFilteredList(mupidatalist: List<Responseee>){
+        this.mupidatalist = mupidatalist
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): itemMupiViewHolder
     {
         val binding = ItemMupiBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -43,11 +44,5 @@ class mupiItemAdapt (
 
     override fun getItemCount(): Int = listmupi.size
 
-//    // setData tetap sama karena tipe data list telah diubah
-//    fun setData(data: ArrayList<LazdayModel>) {
-//        listLazday.clear()
-//        listLazday.addAll(data.result)
-//        notifyDataSetChanged()
-//    }
 
 }

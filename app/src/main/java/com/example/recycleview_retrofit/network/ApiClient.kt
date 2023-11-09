@@ -11,12 +11,10 @@ object ApiClient {
         val mHttpLoggingInterceptor = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        // kalau mau set API kayak header dan lain-lain, itu setnya di mokhttpclient juga (misal kayak buat token)
         val mOkHttpClient= OkHttpClient.Builder()
             .addInterceptor(mHttpLoggingInterceptor)
             .build()
 
-        // mengubah request dari si get api menjadi bentuk class data model tadi
         val builder = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
