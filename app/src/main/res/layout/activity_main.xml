@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Layout utama untuk tampilan aplikasi menggunakan LinearLayout -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,27 +9,30 @@
     android:background="@color/pale_black"
     tools:context=".MainActivity" >
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Movie Catalogue"
-                android:textColor="@color/white"
-                android:textColorHighlight="#5A5A5A"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+    <!-- Judul aplikasi -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Movie Catalogue"
+        android:textColor="@color/white"
+        android:textColorHighlight="#5A5A5A"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Popular Movies"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/dark_grey" />
+    <!-- Subjudul "Popular Movies" -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Popular Movies"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/dark_grey" />
 
+    <!-- CardView untuk menyimpan SearchView -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="390dp"
@@ -43,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- SearchView untuk mencari film -->
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
@@ -52,11 +57,12 @@
             app:queryHint="Search here ..." />
 
     </com.google.android.material.card.MaterialCardView>
+
+    <!-- RecyclerView untuk menampilkan daftar film -->
     <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/RV"
-                tools:listitem="@layout/item_mupi"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+        android:id="@+id/RV"
+        tools:listitem="@layout/item_mupi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

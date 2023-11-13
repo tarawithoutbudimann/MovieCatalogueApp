@@ -28,13 +28,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         searchView = binding.searchView
 
+        // Inisialisasi objek ApiClient
         val client = ApiClient.getInstance()
+
+        // Mendapatkan data film dari API menggunakan Retrofit
         val response = client.getMovie()
 
+        // Menangani respons dari permintaan Retrofit
         response.enqueue(object : Callback<Responseee> {
             override fun onResponse(call: Call<Responseee>, response: Response<Responseee>) {
                 val thisResponse = response.body()
                 val data = thisResponse?.result ?: emptyList()
+
+                // Memproses data yang diterima dari API
                 if (data.isNotEmpty()) {
                     for (item in data) {
                         val itemMupiData = ResultItem(
@@ -46,6 +52,8 @@ class MainActivity : AppCompatActivity() {
                             mupidatalist.add(itemMupiData)
                         }
                     }
+
+                    // Menginisialisasi dan menetapkan adapter RecyclerView
                     adaptermupi = mupiItemAdapt(mupidatalist) { mupi ->
                         Toast.makeText(this@MainActivity, "anjay", Toast.LENGTH_SHORT).show()
                     }
@@ -59,34 +67,42 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Responseee>, t: Throwable) {
+                // Menangani kegagalan permintaan Retrofit
                 Log.d("error", "" + t.stackTraceToString())
             }
         })
 
+        // Menetapkan listener untuk SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                // Memfilter data berdasarkan input pengguna
                 filterList(newText)
                 return true
             }
         })
     }
 
+    // Fungsi untuk melakukan filter pada data film
     private fun filterList(query: String?) {
         if (query != null) {
-            val filteredList = ArrayList<ResultItem>() // Use ArrayList<ResultItem> instead of List<Responseee>
+            val filteredList = ArrayList<ResultItem>()
+
+            // Mengecek setiap item dalam daftar dan menambahkannya ke daftar terfilter jika cocok dengan query
             for (i in mupidatalist) {
                 if (i.title?.lowercase(Locale.ROOT)?.contains(query) == true) {
                     filteredList.add(i)
                 }
             }
 
+            // Menampilkan pesan jika tidak ada data yang sesuai dengan query
             if (filteredList.isEmpty()) {
                 Toast.makeText(this, "No Data found", Toast.LENGTH_SHORT).show()
             } else {
+                // Mengatur daftar terfilter pada adapter RecyclerView
                 adaptermupi.setFilteredList(filteredList)
             }
         }

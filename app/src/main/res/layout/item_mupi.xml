@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:id="@+id/film1"
-    android:layout_marginStart="27dp"
+<!-- Layout untuk menampilkan item film dalam RecyclerView menggunakan CardView -->
+<androidx.cardview.widget.CardView
+    android:id="@+id/film1"
     android:layout_width="150dp"
     android:layout_height="200dp"
+    android:layout_marginStart="27dp"
     android:layout_marginTop="25dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
@@ -14,6 +16,8 @@
     android:focusable="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ImageView untuk menampilkan gambar film -->
     <ImageView
         android:id="@+id/image_Mupi"
         android:layout_width="match_parent"
@@ -21,11 +25,15 @@
         android:src="@drawable/cutnyak"
         android:scaleType="fitXY"
         android:alpha="0.75"/>
+
+    <!-- LinearLayout sebagai wadah untuk teks dan rating -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
+
+        <!-- TextView untuk menampilkan judul film -->
         <TextView
             android:id="@+id/txtMupi"
             android:layout_width="wrap_content"
@@ -35,6 +43,8 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:layout_marginTop="125dp" />
+
+        <!-- RatingBar untuk menampilkan rating film -->
         <RatingBar
             android:id="@+id/rating1"
             android:layout_width="wrap_content"
