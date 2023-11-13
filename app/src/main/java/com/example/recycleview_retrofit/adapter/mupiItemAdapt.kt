@@ -1,5 +1,7 @@
 package com.example.recycleview_retrofit.adapter
 
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +16,7 @@ typealias onClickmupi = (ResultItem) -> Unit
 class mupiItemAdapt(
     private val listmupi: ArrayList<ResultItem>, // Daftar item Mupi
     private val onClickmupi: onClickmupi // Listener klik untuk item Mupi
-) : RecyclerView.Adapter<mupiItemAdapt.itemMupiViewHolder>() {
+) : RecyclerView.Adapter<mupiItemAdapt.itemMupiViewHolder>(), Parcelable {
 
     // ViewHolder untuk item Mupi
     inner class itemMupiViewHolder(private val binding: ItemMupiBinding) :
@@ -35,6 +37,12 @@ class mupiItemAdapt(
                 Glide.with(itemView.context).load(data.image).into(binding.imageMupi)
             }
         }
+    }
+
+    constructor(parcel: Parcel) : this(
+        TODO("listmupi"),
+        TODO("onClickmupi")
+    ) {
     }
 
     // Memperbarui data adapter dengan daftar yang difilter
@@ -58,4 +66,21 @@ class mupiItemAdapt(
 
     // Mengembalikan jumlah total item dalam kumpulan data
     override fun getItemCount(): Int = listmupi.size
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<mupiItemAdapt> {
+        override fun createFromParcel(parcel: Parcel): mupiItemAdapt {
+            return mupiItemAdapt(parcel)
+        }
+
+        override fun newArray(size: Int): Array<mupiItemAdapt?> {
+            return arrayOfNulls(size)
+        }
+    }
 }

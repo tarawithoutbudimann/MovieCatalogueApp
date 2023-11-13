@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Menginisialisasi dan menetapkan adapter RecyclerView
                     adaptermupi = mupiItemAdapt(mupidatalist) { mupi ->
-                        Toast.makeText(this@MainActivity, "anjay", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "film berhasil diklik", Toast.LENGTH_SHORT).show()
                     }
                     with(binding) {
                         RV.apply {
